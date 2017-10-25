@@ -1,0 +1,26 @@
+{
+    "manifest_version":2,
+    "name":"simple unescape unicode",
+    "version":"0.0.0.1",
+    "description":"unicode形式のテキストをデコードします",
+    "icons": {
+        "16":"images/icon_16.png",
+        "48":"images/icon_48.png",
+        "128":"images/icon_128.png"
+    },
+    /*
+    "browser_action": {
+        "default_icon":"images/icon_16.png",
+        "default_title":"simple unescape unicode",
+    },
+    */
+    "content_scripts":[
+        {
+            "matches":["http://*/*", "https://*/*"],
+            "match_about_blank":true,
+            "js":["js/jquery-2.2.4.min.js", "js/unescape.js"]
+        }
+    ],
+    "permissions":[
+    ]
+}
