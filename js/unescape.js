@@ -21,7 +21,7 @@
         if (text != "") {
             var encodeText = unescapeUnicode(text);
             if (encodeText != text) {
-                element.text(encodeText);
+                element.text(trimEncodeText(encodeText, text));
                 element.css("left", x);
                 element.css("top", y);
                 element.css("display", "block");
@@ -50,4 +50,21 @@
         return String.fromCharCode(parseInt(m1, 16));
       });
     };
+    function trimEncodeText(encodeText, originText) {
+        var beginIndex = 0;
+        var endIndex = -1;
+        var encodeTextLength = encodeText.length;
+        var originTextLength = originText.length;
+        while (encodeText.charAt(beginIndex) == originText.charAt(beginIndex)) {
+            beginIndex = beginIndex + 1;
+        }
+        while (encodeText.charAt(encodeTextLength + endIndex) == originText.charAt(originTextLength + endIndex)) {
+            endIndex = endIndex - 1;
+        }
+        if (endIndex + 1 < 0) {
+            return encodeText.slice(beginIndex, endIndex + 1);
+        } else {
+            return encodeText.substring(beginIndex);
+        }
+    }
 });
