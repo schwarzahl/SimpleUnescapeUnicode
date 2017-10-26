@@ -1,4 +1,7 @@
 ﻿$(function() {
+    var MARGIN_X = 5;
+    var MARGIN_Y = 5;
+
     $("body").append("<div id='simple_unescape_unicode_result'></div>");
     var result_element = $("#simple_unescape_unicode_result");
     result_element.css("display", "none");
@@ -10,7 +13,7 @@
     $(window).mousemove(function(event) {
         var text = getHoverText();
         if (text != prevText) {
-            changeDivStatus(result_element, text, event.clientX, event.clientY);
+            changeDivStatus(result_element, text, event.clientX + MARGIN_X, event.clientY + MARGIN_Y);
             prevText = text;
         }
     });
