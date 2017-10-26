@@ -1,7 +1,7 @@
 {
     "manifest_version":2,
     "name":"simple unescape unicode",
-    "version":"0.0.0.1",
+    "version":"0.0.0.2",
     "description":"unicode形式のテキストをデコードします",
     "icons": {
         "16":"images/icon_16.png",
