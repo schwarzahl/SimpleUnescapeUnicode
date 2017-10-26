@@ -48,18 +48,20 @@
       });
     };
     function trimEncodeText(encodeText, originText) {
-        var beginIndex = 1;
+        var beginIndex = 0;
         var endIndex = -1;
-        while (originText.indexOf(encodeText.substring(0, beginIndex)) == 0) {
+        var encodeTextLength = encodeText.length;
+        var originTextLength = originText.length;
+        while (encodeText.charAt(beginIndex) == originText.charAt(beginIndex)) {
             beginIndex = beginIndex + 1;
         }
-        while (encodeText.slice(endIndex) == originText.slice(endIndex)) {
+        while (encodeText.charAt(encodeTextLength + endIndex) == originText.charAt(originTextLength + endIndex)) {
             endIndex = endIndex - 1;
         }
         if (endIndex + 1 < 0) {
-            return encodeText.slice(beginIndex - 1, endIndex + 1);
+            return encodeText.slice(beginIndex, endIndex + 1);
         } else {
-            return encodeText.substring(beginIndex - 1);
+            return encodeText.substring(beginIndex);
         }
     }
 });
